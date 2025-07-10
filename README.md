@@ -34,8 +34,3 @@ Antarmuka pengguna (UI) dirancang minimalis dan intuitif, menampilkan:
 - [x] Sensor LTC4150 (Coulomb Counter)
 - [x] OLED SSD1306 (0.96" I2C)
 - [x] Resistor & kabel jumper
-
----
-
-## 📦 Struktur Proyek
-
