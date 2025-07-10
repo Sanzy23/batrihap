@@ -13,8 +13,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 Adafruit_INA219 ina219;
 
 // === LTC4150 Setup ===
-const int ltcInterruptPin = 2;
-const int polPin          = 4;       
+const int ltcInterruptPin = 16;
+const int polPin          = 17;       
 volatile double battery_mAh     = 6800.0;
 volatile double battery_percent = 100.0; 
 volatile long int timestamp, lasttimestamp;
@@ -123,7 +123,7 @@ void loop() {
     loadVoltage     = busVoltage_V + (shuntVoltage_mV / 1000.0);
   }
 
-  // === Task: Tampilkan OLED jika ada update LTC
+  // === Task: LTC
   if (now - lastOledUpdate >= OLED_INTERVAL) {
     isrflag = false;
     lastOledUpdate = now;
