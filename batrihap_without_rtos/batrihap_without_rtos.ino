@@ -16,7 +16,7 @@ Adafruit_INA219 ina219;
 const int ltcInterruptPin = 2;
 const int polPin          = 4;       
 volatile double battery_mAh     = 6800.0;
-volatile double battery_percent = 100.0;
+volatile double battery_percent = 100.0; 
 volatile long int timestamp, lasttimestamp;
 volatile double mA;
 
@@ -30,7 +30,7 @@ unsigned long lastOledUpdate   = 0;
 unsigned long lastSerialPrint  = 0;
 
 const unsigned long SENSOR_INTERVAL  = 500;  // ms
-const unsigned long OLED_INTERVAL    = 1000; // ms
+const unsigned long OLED_INTERVAL    = 500;  // ms
 const unsigned long SERIAL_INTERVAL  = 1000; // ms
 
 // Data INA219
@@ -124,7 +124,7 @@ void loop() {
   }
 
   // === Task: Tampilkan OLED jika ada update LTC
-  if (isrflag && now - lastOledUpdate >= OLED_INTERVAL) {
+  if (now - lastOledUpdate >= OLED_INTERVAL) {
     isrflag = false;
     lastOledUpdate = now;
     displayStatusToOLED();
